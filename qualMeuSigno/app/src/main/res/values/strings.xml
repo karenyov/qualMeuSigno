@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Qual é Meu Signo?</string>
+    <string name="titleText">Digite sua data de nascimento</string>
+    <string name="btnEnviar">Enviar</string>
+</resources>
