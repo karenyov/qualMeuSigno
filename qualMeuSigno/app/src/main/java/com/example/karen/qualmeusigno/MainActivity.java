@@ -5,9 +5,11 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -35,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
                 showDialog(DATE_ID);
             }
         });
+
+        Button btnEnviar = findViewById(R.id.btnEnviar);
+        btnEnviar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buscarSigno();
+            }
+        });
     }
 
     private void atualizaData() {
@@ -49,15 +59,15 @@ public class MainActivity extends AppCompatActivity {
         calendar.set(Calendar.YEAR, Integer.parseInt(data[2]));
 
         MeuSigno meuSigno = new MeuSigno();
-        signo = (TextView) findViewById(R.id.txtSigno);
-        signo.setText(meuSigno.qualMeuSigno(calendar));
+        Toast toast = Toast.makeText(this, "Seu signo é " + meuSigno.qualMeuSigno(calendar), Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     private DatePickerDialog.OnDateSetListener mDateSetListener =
             new DatePickerDialog.OnDateSetListener() {
                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                     ano = year;
-                    mes = monthOfYear;
+                    mes = monthOfYear + 1;
                     dia = dayOfMonth;
                     atualizaData();
                 }
