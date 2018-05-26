@@ -2,4 +2,29 @@
     <string name="app_name">Qual é Meu Signo?</string>
     <string name="titleText">Digite sua data de nascimento</string>
     <string name="btnEnviar">Enviar</string>
+    <string name="btnMeuSigno">Consultar Signo</string>
+    <string name="meuSignoTitle">Qual é meu Signo?</string>
+    <string name="meuSignoDesc">Não sei meu Signo.</string>
+    <string name="compatibilidadeTitle">Compatibilidade</string>
+    <string name="compatibilidadeDesc">Compatibilidade com meu Signo.</string>
+    <string name="btnCompatibilidade">Consultar Compatibilidade</string>
+    <string name="compatibilidadeText">Compatibilidade</string>
+    <string name="compatibilidadeTitleText">Digite seu Signo</string>
+    <string name="compatibilidadeSubText">Já sei meu Signo e gostaria de consultar a compatibilidade com outros signos</string>
+
+    <string-array name="signos">
+        <item>Selecione seu Signo</item>
+        <item>Aquário</item>
+        <item>Peixes</item>
+        <item>Áries</item>
+        <item>Touro</item>
+        <item>Gêmeos</item>
+        <item>Câncer</item>
+        <item>Leão</item>
+        <item>Virgem</item>
+        <item>Libra</item>
+        <item>Escorpião</item>
+        <item>Sagitário</item>
+        <item>Capricórnio</item>
+    </string-array>
 </resources>

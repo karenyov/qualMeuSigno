@@ -9,6 +9,7 @@ import java.util.Calendar;
 public class MeuSigno {
 
     String signo;
+    String imagem;
 
     public String qualMeuSigno(Calendar calendar) {
         int mes = calendar.get(Calendar.MONTH);
@@ -16,30 +17,88 @@ public class MeuSigno {
 
         if ((mes == 1 && dia >= 20) || (mes == 2 && dia <= 18)) { //Aquário 20 de Janeiro – 18 de Fevereiro
             this.setSigno("Aquário");
+            this.setImagem("aquario");
         } else if ((mes == 2 && dia >= 19) || (mes == 3 && dia <= 20)) { //Peixe 19 de Fevereiro – 20 de Março
             this.setSigno("Peixe");
+            this.setImagem("peixes");
         } else if ((mes == 3 && dia >= 21) || (mes == 4 && dia <= 19)) { //Áries 21 de Março – 19 de Abril
             this.setSigno("Áries");
+            this.setImagem("aries");
         } else if ((mes == 4 && dia >= 20) || (mes == 5 && dia <= 20)) { //Touro 20 de Abril – 20 de Maio
             this.setSigno("Touro");
+            this.setImagem("touro");
         } else if ((mes == 5 && dia >= 21) || (mes == 6 && dia <= 20)) { //Gêmeos 21 de Maio – 20 de Junho
             this.setSigno("Gêmeos");
+            this.setImagem("gemeos");
         } else if ((mes == 6 && dia >= 21) || (mes == 7 && dia <= 22)) { //Câncer 21 de Junho – 22 de Julho
             this.setSigno("Câncer");
+            this.setImagem("cancer");
         } else if ((mes == 7 && dia >= 23) || (mes == 8 && dia <= 22)) { //Leão 23 de Julho – 22 de Agosto
             this.setSigno("Leão");
+            this.setImagem("leao");
         } else if ((mes == 8 && dia >= 23) || (mes == 9 && dia <= 22)) { //Virgem 23 de Agosto – 22 de Setembro
             this.setSigno("Virgem");
+            this.setImagem("virgem");
         } else if ((mes == 9 && dia >= 23) || (mes == 10 && dia <= 22)) { //Libra 23 de Setembro – 22 de Outubro
             this.setSigno("Libra");
+            this.setImagem("libra");
         } else if ((mes == 10 && dia >= 23) || (mes == 11 && dia <= 21)) { //Escorpião October 23 - November 21
             this.setSigno("Escorpião");
+            this.setImagem("escorpiao");
         } else if ((mes == 11 && dia >= 22) || (mes == 12 && dia <= 21)) { //Sagitário 22 de Novembro – 21 de Dezembro
             this.setSigno("Sagitário");
+            this.setImagem("sagitario");
         } else if ((mes == 12 && dia >= 22) || (mes == 1 && dia <= 19)) { //Capricórnio 22 de Dezembro – 19 de Janeiro
             this.setSigno("Capricórnio");
+            this.setImagem("capricornio");
         }
         return this.getSigno();
+    }
+
+    public String signosCompativeis(int indice) {
+        String resultado = null;
+        switch (indice) {
+            case 1:
+                resultado = " leão, capricórnio e peixes.";
+                break;
+            case 2:
+                resultado = " virgem, Áries e sagitário.";
+                break;
+            case 3:
+                resultado = " Libra, touro e câncer.";
+                break;
+            case 4:
+                resultado = " Escorpião, gêmeos e leão.";
+                break;
+            case 5:
+                resultado = " Sagitário, câncer e virgem";
+                break;
+            case 6:
+                resultado = " capricórnio, áries e libra.";
+                break;
+            case 7:
+                resultado = " Aquário,  touro e virgem.";
+                break;
+            case 8:
+                resultado = " Libra, peixes e o sagitário";
+                break;
+            case 9:
+                resultado = " Áries, touro e câncer.";
+                break;
+            case 10:
+                resultado = " touro, sagitário e aquário.";
+                break;
+            case 11:
+                resultado = " Peixes, virgem e capricórnio";
+                break;
+            case 12:
+                resultado = "Câncer, aquário e libra ";
+                break;
+            default:
+                resultado = null;
+        }
+
+        return resultado;
     }
 
     public String getSigno() {
@@ -48,5 +107,13 @@ public class MeuSigno {
 
     public void setSigno(String signo) {
         this.signo = signo;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 }
