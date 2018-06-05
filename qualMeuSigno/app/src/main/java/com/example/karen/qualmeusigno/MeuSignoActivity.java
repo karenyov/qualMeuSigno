@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ public class MeuSignoActivity extends AppCompatActivity {
     private int dia, mes, ano;
     static final int DATE_ID = 0;
     Calendar c = Calendar.getInstance();
+    private RadioGroup radioGroup;
+    private MeuSigno meuSigno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,8 @@ public class MeuSignoActivity extends AppCompatActivity {
         mes = c.get(Calendar.MONTH);
         dia = c.get(Calendar.DAY_OF_MONTH);
         ano = c.get(Calendar.YEAR);
+
+        radioGroup = findViewById(R.id.radioGroup);
 
         dataNascimento.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +71,7 @@ public class MeuSignoActivity extends AppCompatActivity {
             calendar.set(Calendar.MONTH, Integer.parseInt(data[1]));
             calendar.set(Calendar.YEAR, Integer.parseInt(data[2]));
 
-            MeuSigno meuSigno = new MeuSigno();
+            meuSigno = new MeuSigno();
             Toast toast = Toast.makeText(this, "Seu signo é " + meuSigno.qualMeuSigno(calendar), Toast.LENGTH_SHORT);
             toast.show();
 
@@ -95,5 +100,18 @@ public class MeuSignoActivity extends AppCompatActivity {
                 return new DatePickerDialog(this, mDateSetListener, ano, mes, dia);
         }
         return null;
+    }
+
+    public void onRadioButtonClick(View view) {
+        int id = radioGroup.getCheckedRadioButtonId();
+        switch (id) {
+            case R.id.radio_1:
+                String signos = meuSigno.signosCompativeis(meuSigno.getIndice());
+                Toast.makeText(this, "Signos compativeis: " + signos, Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.radio_2:
+                Toast.makeText(this, "Caso você queira verificar a compatibilidade é só ir ao menu principal e opção compatibilidade :)" , Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }
